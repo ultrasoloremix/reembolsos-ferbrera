@@ -34,39 +34,39 @@ function agregarGasto() {
     const container = document.getElementById('gastos-container');
     const gastoHTML = `
         <div class="border border-gray-300 rounded p-4 relative" id="gasto-${gastoCount}">
-            <h4 class="text-sm font-semibold text-gray-600 mb-3">Gasto ${gastoCount}[cite: 1]</h4>
+            <h4 class="text-sm font-semibold text-gray-600 mb-3">Gasto ${gastoCount}</h4>
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-xs text-gray-500 mb-1">Fecha del gasto[cite: 1]</label>
+                    <label class="block text-xs text-gray-500 mb-1">Fecha del gasto</label>
                     <input type="date" class="w-full border rounded p-2 text-sm" required>
                 </div>
                 <div>
-                    <label class="block text-xs text-gray-500 mb-1">Tipo de gasto[cite: 1]</label>
+                    <label class="block text-xs text-gray-500 mb-1">Tipo de gasto</label>
                     <select class="w-full border rounded p-2 text-sm">
-                        <option>Viáticos[cite: 1]</option>
-                        <option>Alimentos[cite: 2]</option>
-                        <option>Transporte[cite: 2]</option>
+                        <option>Viáticos</option>
+                        <option>Alimentos</option>
+                        <option>Transporte</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs text-gray-500 mb-1">Importe del gasto[cite: 1]</label>
+                    <label class="block text-xs text-gray-500 mb-1">Importe del gasto</label>
                     <input type="number" step="0.01" min="0" class="importe-input w-full border rounded p-2 text-sm" onchange="calcularTotal()" required placeholder="0.00">
                 </div>
                 <div>
-                    <label class="block text-xs text-gray-500 mb-1">Concepto[cite: 1]</label>
-                    <input type="text" class="w-full border rounded p-2 text-sm" placeholder="Qué compraste y para qué[cite: 1]" required>
+                    <label class="block text-xs text-gray-500 mb-1">Concepto</label>
+                    <input type="text" class="w-full border rounded p-2 text-sm" placeholder="Qué compraste y para qué" required>
                 </div>
                 <div>
-                    <label class="block text-xs text-gray-500 mb-1">¿Tiene factura?[cite: 1]</label>
+                    <label class="block text-xs text-gray-500 mb-1">¿Tiene factura?</label>
                     <select class="w-full border rounded p-2 text-sm">
-                        <option>Sí[cite: 1]</option>
+                        <option>Sí</option>
                         <option>No</option>
                     </select>
                 </div>
                 <div>
-                    <label class="block text-xs text-gray-500 mb-1">Adjuntos[cite: 1]</label>
+                    <label class="block text-xs text-gray-500 mb-1">Adjuntos</label>
                     <input type="file" class="w-full border rounded p-1 text-sm bg-gray-50" multiple>
-                    <p class="text-[10px] text-gray-400 mt-1">Adjunta PDF y XML de la factura.[cite: 1]</p>
+                    <p class="text-[10px] text-gray-400 mt-1">Adjunta PDF y XML de la factura.</p>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@ function calcularTotal() {
     importes.forEach(input => {
         totalReembolso += parseFloat(input.value || 0);
     });
-    document.getElementById('total-display').innerText = `Total: $${totalReembolso.toFixed(2)}[cite: 1]`;
+    document.getElementById('total-display').innerText = `Total: $${totalReembolso.toFixed(2)}`;
 }
 
 // Manejar el envío del formulario
@@ -90,14 +90,14 @@ document.getElementById('reembolso-form').addEventListener('submit', function(e)
     
     const nombre = document.getElementById('nombre').value;
     const area = document.getElementById('area').value;
-    const folio = `RB-000${Math.floor(Math.random() * 900) + 100}`; // Simular folio RB-000X[cite: 2]
+    const folio = `RB-000${Math.floor(Math.random() * 900) + 100}`; // Simular folio RB-000X
     
     const nuevaSolicitud = {
         folio: folio,
         nombre: nombre,
         area: area,
         total: totalReembolso.toFixed(2),
-        estatus: 'En aprobación[cite: 2]',
+        estatus: 'En aprobación',
         fecha: new Date().toLocaleDateString()
     };
 
@@ -143,10 +143,10 @@ function cargarAprobaciones() {
         lista.innerHTML += `
             <div class="border border-gray-200 rounded p-4 bg-gray-50">
                 <div class="flex justify-between items-start mb-2">
-                    <h3 class="font-bold text-gray-800">${sol.folio} - $${sol.total} MXN[cite: 2]</h3>
+                    <h3 class="font-bold text-gray-800">${sol.folio} - $${sol.total} MXN</h3>
                     <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded border border-yellow-200">${sol.estatus}</span>
                 </div>
-                <p class="text-sm text-gray-600">${sol.nombre} · ${sol.area} · Pago: Transferencia[cite: 2]</p>
+                <p class="text-sm text-gray-600">${sol.nombre} · ${sol.area} · Pago: Transferencia</p>
                 <div class="mt-3 space-x-2">
                     <button onclick="aprobar(${index})" class="bg-emerald-600 text-white text-xs px-3 py-1 rounded hover:bg-emerald-700">Aprobar</button>
                     <button class="border border-red-500 text-red-500 text-xs px-3 py-1 rounded hover:bg-red-50">Rechazar</button>
@@ -160,7 +160,7 @@ function aprobar(index) {
     let solicitudes = JSON.parse(localStorage.getItem('reembolsos'));
     // Invertimos el index porque la lista se renderiza al revés (reverse)
     const realIndex = solicitudes.length - 1 - index; 
-    solicitudes[realIndex].estatus = 'Aprobada[cite: 2]';
+    solicitudes[realIndex].estatus = 'Aprobada';
     localStorage.setItem('reembolsos', JSON.stringify(solicitudes));
     cargarAprobaciones();
 }

@@ -21,58 +21,58 @@
         <div class="flex space-x-2 mb-4 border-b border-gray-300">
             <button onclick="switchTab('solicitante')" id="tab-solicitante" class="tab-active px-6 py-2 border border-b-0 rounded-t-lg transition-colors">Solicitante</button>
             <button onclick="switchTab('aprobador')" id="tab-aprobador" class="tab-inactive px-6 py-2 border border-b-0 rounded-t-lg transition-colors">Aprobador</button>
-            <button id="tab-cuentas" class="tab-inactive px-6 py-2 border border-b-0 rounded-t-lg opacity-50 cursor-not-allowed text-sm">Cuentas por pagar[cite: 1]</button>
+            <button id="tab-cuentas" class="tab-inactive px-6 py-2 border border-b-0 rounded-t-lg opacity-50 cursor-not-allowed text-sm">Cuentas por pagar</button>
         </div>
 
         <!-- VISTA: Solicitante -->
         <div id="view-solicitante" class="bg-white border border-gray-300 rounded-lg p-6 shadow-sm">
-            <h2 class="text-lg font-semibold mb-4 text-gray-700">Nuevo reembolso[cite: 1]</h2>
+            <h2 class="text-lg font-semibold mb-4 text-gray-700">Nuevo reembolso</h2>
             
             <form id="reembolso-form">
                 <div class="grid grid-cols-2 gap-4 mb-6">
                     <div>
                         <label class="block text-xs font-medium text-gray-500 mb-1">Solicitante</label>
-                        <input type="text" id="nombre" placeholder="Tu nombre (de la cuenta Microsoft 365)" required class="w-full border border-gray-300 rounded p-2 text-sm focus:ring-2 focus:ring-emerald-500 outline-none"[cite: 1]>
+                        <input type="text" id="nombre" placeholder="Tu nombre (de la cuenta Microsoft 365)" required class="w-full border border-gray-300 rounded p-2 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-1">Área o centro de costos[cite: 1]</label>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">Área o centro de costos</label>
                         <select id="area" class="w-full border border-gray-300 rounded p-2 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
-                            <option>Cuentas por pagar[cite: 1]</option>
-                            <option>Ventas[cite: 2]</option>
-                            <option>Compras[cite: 2]</option>
+                            <option>Cuentas por pagar</option>
+                            <option>Ventas</option>
+                            <option>Compras</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-1">Moneda[cite: 1]</label>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">Moneda</label>
                         <select id="moneda" class="w-full border border-gray-300 rounded p-2 text-sm bg-gray-50">
-                            <option>MXN[cite: 1]</option>
+                            <option>MXN</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-medium text-gray-500 mb-1">Forma de pago[cite: 1]</label>
+                        <label class="block text-xs font-medium text-gray-500 mb-1">Forma de pago</label>
                         <select id="forma_pago" class="w-full border border-gray-300 rounded p-2 text-sm">
-                            <option>Transferencia[cite: 1]</option>
+                            <option>Transferencia</option>
                         </select>
                     </div>
                 </div>
 
-                <h3 class="text-md font-semibold mb-3 text-gray-700">Gastos incluidos[cite: 1]</h3>
+                <h3 class="text-md font-semibold mb-3 text-gray-700">Gastos incluidos</h3>
                 <div id="gastos-container" class="space-y-4">
                     <!-- Los gastos se inyectan aquí vía JS -->
                 </div>
 
-                <button type="button" onclick="agregarGasto()" class="mt-4 px-4 py-2 border border-gray-300 rounded text-sm text-gray-700 hover:bg-gray-50">+ Agregar otro gasto[cite: 1]</button>
+                <button type="button" onclick="agregarGasto()" class="mt-4 px-4 py-2 border border-gray-300 rounded text-sm text-gray-700 hover:bg-gray-50">+ Agregar otro gasto</button>
 
                 <div class="mt-6 flex justify-between items-center border-t pt-4">
-                    <div class="text-xl font-bold text-gray-800" id="total-display">Total: $0.00[cite: 1]</div>
-                    <button type="submit" class="bg-emerald-600 text-white px-6 py-2 rounded shadow hover:bg-emerald-700 transition">Enviar reembolso[cite: 2]</button>
+                    <div class="text-xl font-bold text-gray-800" id="total-display">Total: $0.00</div>
+                    <button type="submit" class="bg-emerald-600 text-white px-6 py-2 rounded shadow hover:bg-emerald-700 transition">Enviar reembolso</button>
                 </div>
             </form>
         </div>
 
         <!-- VISTA: Aprobador -->
         <div id="view-aprobador" class="hidden-view bg-white border border-gray-300 rounded-lg p-6 shadow-sm">
-            <h2 class="text-lg font-semibold mb-4 text-gray-700">Mis reembolsos (Para Aprobar)[cite: 2]</h2>
+            <h2 class="text-lg font-semibold mb-4 text-gray-700">Mis reembolsos (Para Aprobar)</h2>
             <div id="lista-aprobaciones" class="space-y-4">
                 <!-- Solicitudes inyectadas vía JS -->
             </div>
